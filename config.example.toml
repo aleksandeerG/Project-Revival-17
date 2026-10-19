@@ -1,0 +1,58 @@
+# Project Revival 17 - server configuration template.
+#
+# Copy this file to state/config.toml (create the "state" folder next to
+# "server") and edit it. Select a profile with --profile <name>.
+#
+# bind      = the network interface the server listens on.
+# advertise = the address players connect to. It is written into every invite,
+#             so it must be reachable by your friends and must stay the same.
+#             Maximum 16 characters: use your public IPv4 address or a short
+#             hostname.
+
+default_profile = "local"
+
+protocol_version = "1"
+content_version = "1"
+launcher_version = "0.1.0"
+minimum_launcher_version = "0.1.0"
+
+
+# Starting money and coin rewards for every club on this server. Every key is
+# optional; leave one out to keep the value shown. Whole numbers only.
+# This table applies to the whole server, so its keys must not go under a
+# [profiles...] heading. Restart the server after changing it.
+[economy]
+# What a NEW club starts with (0 to 2147483647). Existing clubs keep theirs.
+starting_coins = 1_000_000
+starting_points = 10_000
+
+# Coin reward multipliers (1 to 1000). 1 uses the project's unmultiplied base
+# rewards; it does not restore the original game's economy. Only coins are
+# multiplied, never packs or items.
+coin_reward_multiplier = 25                 # Squad Building Challenges, single-player tournaments
+offline_competition_reward_multiplier = 15  # Offline Seasons, Single Player Draft
+online_competition_reward_multiplier = 25   # Online Seasons, Online Draft
+
+
+# Single machine: the server and the game run on the same PC.
+[profiles.local]
+bind = "127.0.0.1"
+advertise = "127.0.0.1"
+
+
+# Friends over the internet. Requires --allow-remote and --knock-port.
+[profiles.friends]
+bind = "0.0.0.0"
+advertise = "203.0.113.10"   # replace with your public IPv4 address
+
+# Who may connect without knocking: this PC and your home network.
+# Friends are admitted automatically when their launcher knocks with the
+# token from their invite.
+allow = ["127.0.0.1", "::1", "192.168.1.0/24"]   # replace with your LAN range
+
+# Ports. Forward each of these (TCP) on your router to this PC, plus the knock
+# port you pass on the command line. Choose values between 20000 and 45000.
+accounts_port = 34991
+redirector_port = 24937
+blaze_port = 34472
+fut_port = 22111

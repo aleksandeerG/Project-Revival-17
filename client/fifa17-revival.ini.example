@@ -1,0 +1,45 @@
+; Project Revival 17 - client shim configuration template.
+;
+; The launcher writes this file for you. Use this template only for a manual
+; install: copy it to "fifa17-revival.ini" beside FIFA17.exe (next to
+; version.dll) and fill in the values.
+;
+; The password is stored in plain text and works as your account credential.
+; Do not share this file.
+
+; The port values below are the built-in defaults used by the "local"
+; profile (server and game on the same PC). For the "friends" profile in
+; config.example.toml, use that profile's ports instead:
+;   Port (redirector) = 24937    login_port = 34991
+;   fut_port = 22111             cdn_port   = 22111
+;   blaze_port = 34472
+
+[Login]
+; Server address (maximum 16 characters) and redirector port.
+Host = 127.0.0.1
+Port = 42230
+; 1 writes fifa17-revival-log.txt beside FIFA17.exe for troubleshooting.
+Debug = 0
+
+[Credentials]
+Username = player
+Password = yourpassword
+
+[Patch]
+; Required compatibility patches. In memory only; nothing on disk is changed.
+accept_certs = 1
+fifa_points = 1
+transfer_pile_capacity = 1
+squad_rename_guard = 1
+force_flux_components_ready = 1
+
+[Server]
+; Must match the ports of the server profile. These are the "local"
+; profile defaults; see the top of this file for the "friends" values.
+login_port = 5139
+fut_port   = 8080
+cdn_port   = 8080
+blaze_port = 44321
+; The server certificate pin (64 hexadecimal characters). Get it from the
+; host, who prints it with: python server\main.py --print-pin
+certificate_pin = REPLACE_WITH_THE_SERVER_CERTIFICATE_PIN

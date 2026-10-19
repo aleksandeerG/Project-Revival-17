@@ -1,0 +1,90 @@
+PROJECT REVIVAL 17 - START HERE
+
+This is an unofficial, non-commercial fan project for game preservation.
+It is not affiliated with or endorsed by any game publisher. You need your
+own legitimate copy of FIFA 17. Read NOTICE and LICENSE in this folder.
+The project is licensed under PolyForm Noncommercial License 1.0.0.
+
+WHAT YOU NEED
+
+- Windows 10 or 11, 64-bit.
+- Your own FIFA 17 PC installation from EA app, fully updated to the final
+  version (1.0.48.30259). Start the game normally once to finish setup.
+- A writable game folder such as C:\Games\FIFA 17. If the game is in
+  Program Files, reinstall it through EA app into a normal writable folder.
+- .NET 8 Desktop Runtime, Windows x64. Choose the Desktop Runtime installer:
+  https://dotnet.microsoft.com/download/dotnet/8.0
+- Your host's running server, its matching launcher ZIP, and your own invite
+  code starting with FUT1-. Your host supplies these privately.
+
+YOUR SERVER'S ECONOMY
+
+Clubs, coins and FIFA Points belong to the server you join. They are separate
+from the original game's accounts and from clubs on other servers.
+
+By default, a new club starts with 1,000,000 coins and 10,000 FIFA Points.
+Coin rewards use these multipliers:
+- 25x for Squad Building Challenges and single-player tournament rounds.
+- 15x for Offline Seasons campaign prizes and Single Player Draft prizes.
+- 25x for Online Seasons campaign prizes and Online Draft prizes.
+
+These multipliers affect coin rewards only, not packs or items. Match
+participation awards, pack prices and quick-sell values are not multiplied.
+Your host can change the starting balances and multipliers; ask them which
+settings their server uses. Starting-balance changes affect new clubs only.
+A multiplier of 1 uses the project's base rewards without scaling; it does
+not restore the original game's economy.
+
+FIRST-TIME SETUP
+
+1. Extract the WHOLE ZIP into a new, empty folder outside your game folder.
+   Keep all extracted files together, including the guide and notices: the
+   launcher checks the package against its manifest.
+2. Run RevivalLauncher.exe. The launcher is unsigned. If SmartScreen blocks
+   it, verify that you received the expected ZIP from your host before using
+   More info > Run anyway.
+3. Click Find FIFA 17 if needed, or open FIFA installation > Browse for
+   FIFA17.exe, and select your installed game executable.
+4. Paste your invite into YOUR INVITE and click Use this invite.
+5. Click Install / apply Revival files. This places version.dll and
+   fifa17-revival.ini beside FIFA17.exe and backs up files it replaces.
+
+EVERY TIME YOU PLAY
+
+1. Check that your host's server is running.
+2. Open RevivalLauncher.exe and click Prepare connection.
+3. Once the connection checks pass, start FIFA 17 from EA app as usual.
+4. Keep the launcher open while playing. You can use Minimize to tray.
+5. Open Ultimate Team in the game. To find a friend on the same server,
+   choose the same online mode and start searching at about the same time.
+
+KEEP YOUR ACCOUNT PRIVATE
+
+Anyone holding your invite can play as you. Do not post it publicly.
+The generated fifa17-revival.ini contains your account password in plain
+text. Do not share that file or upload your whole game/launcher data folder.
+For support, use Connection details > Copy diagnostic report and send the
+copied text to your host. It removes account details, paths and credentials.
+
+UPDATES, REPAIR AND REMOVAL
+
+- Replacement invite: Account and maintenance > Replace invite, then use
+  Install / apply invite if asked. Ask your host for a replacement if yours
+  is refused or the server certificate changes.
+- Launcher update: extract the new ZIP into a new, empty folder, run its
+  RevivalLauncher.exe, then apply the Revival files when prompted. Use the
+  version your host provides for their server.
+- Repair: close FIFA, then use Account and maintenance > Repair files.
+- Another mod's version.dll: the launcher leaves it alone. Back it up and
+  remove it yourself before installing Revival if you choose to use Revival.
+- Incomplete or modified release: extract the whole ZIP again into a new,
+  empty folder. Keep the guide and notices alongside the executable.
+- Cannot write to the game folder: use a normal writable installation
+  folder, then select FIFA17.exe again in the launcher.
+- Uninstall: close FIFA and finish the connection session, then use Account
+  and maintenance > Uninstall Revival. It restores backed-up game files.
+  You can then delete the extracted launcher folder.
+
+If connection checks fail, or you cannot find an opponent, contact your host
+with the diagnostic report. The launcher prepares the connection; you still
+start the game through EA app.

@@ -1,0 +1,41 @@
+# Python
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+
+# Server runtime data (accounts, club databases, certificates, logs, config)
+state/
+certs/
+logs/
+
+# Build output
+client/build/
+dist/
+launcher/**/bin/
+launcher/**/obj/
+*.obj
+*.lib
+*.exp
+*.pdb
+*.ilk
+*.user
+
+# Filled-in shim configuration
+fifa17-revival.ini
+
+# Never commit keys or anything copied from a game installation
+*.pem
+*.key
+*.pfx
+*.p12
+*.exe
+*.dll
+*.big
+*.bin
+
+# Editors / OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db

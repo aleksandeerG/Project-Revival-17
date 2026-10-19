@@ -1,0 +1,22 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>$(RevivalTargetFramework)</TargetFramework>
+    <RootNamespace>Revival.Launcher.App</RootNamespace>
+    <AssemblyName>RevivalLauncher</AssemblyName>
+    <UseWPF>true</UseWPF>
+    <UseWindowsForms>true</UseWindowsForms>
+    <NoWarn>$(NoWarn);WFAC010</NoWarn>
+    <ApplicationManifest>app.manifest</ApplicationManifest>
+    <SelfContained>false</SelfContained>
+    <Version>0.1.0</Version>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Using Remove="System.Windows.Forms" />
+    <Using Remove="System.Drawing" />
+    <ProjectReference Include="..\Revival.Launcher.Core\Revival.Launcher.Core.csproj" />
+  </ItemGroup>
+
+</Project>

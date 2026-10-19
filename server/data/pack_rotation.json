@@ -1,0 +1,44 @@
+{
+ "note": "Store availability and player-card selection policy. FIFA 17 did not publish numerical pack probabilities; these are configurable revival values, not claimed retail odds.",
+ "inactiveSpecialTrigger": {
+  "enabled": false,
+  "formerChancePerRarePlayer": 0.01,
+  "note": "Retained for possible future balancing only. Active specials currently join the weighted rare-player pool directly; pack selection does not read this trigger."
+ },
+ "playerVariantPolicy": {
+  "mode": "highestRatedPackable",
+  "note": "Selects one definition per assetId from the latest base card and all packable specials. Highest rating wins; siteId and resourceId break ties. Future scheduled promo eligibility belongs in this selection stage, before pack weighting."
+ },
+ "playerSelectionWeights": {
+  "model": "positionHeadlineStatsV1",
+  "note": "Applies to the combined selected-special and base-card pool for rare player slots. Higher card power means lower selection weight; pool-kind multipliers are applied afterward.",
+  "poolKindMultipliers": {
+   "base": 1.0,
+   "special": 0.6
+  },
+  "overallShare": 0.25,
+  "headlineStatsShare": 0.75,
+  "eliteBaseline": 75,
+  "eliteDoublingInterval": 10,
+  "inversePowerExponent": 2,
+  "maxOddsRatio": 500,
+  "positionWeights": {
+   "CB": [23, 1, 7, 5, 36, 28],
+   "FB_WB": [32, 3, 15, 16, 20, 14],
+   "CDM": [17, 7, 19, 12, 25, 20],
+   "CM": [17, 13, 25, 21, 10, 14],
+   "CAM": [22, 21, 23, 26, 2, 6],
+   "WIDE_ATTACKER": [35, 19, 14, 25, 1, 6],
+   "ST_CF": [29, 30, 8, 22, 0, 11],
+   "GK": [24, 19, 9, 24, 10, 14]
+  }
+ },
+ "promoRotation": {
+  "mode": "all",
+  "activePackIds": [500, 306, 502, 403, 404, 513, 405, 412, 406, 413],
+  "periodSeconds": 86400,
+  "packsPerRotation": 3,
+  "anchorTimestamp": 1474934400,
+  "seed": 17
+ }
+}

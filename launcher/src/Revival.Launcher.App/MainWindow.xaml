@@ -1,0 +1,115 @@
+<!-- Project Revival 17 - created by aleksanderG - https://github.com/aleksandeerG/Project-Revival-17 -->
+<Window x:Class="Revival.Launcher.App.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Project Revival 17" Height="740" Width="740" MinHeight="580" MinWidth="580"
+        Background="{StaticResource Canvas}" WindowStartupLocation="CenterScreen">
+  <Grid Margin="24">
+    <Grid.RowDefinitions>
+      <RowDefinition Height="Auto" />
+      <RowDefinition Height="*" />
+      <RowDefinition Height="Auto" />
+    </Grid.RowDefinitions>
+    <StackPanel Margin="0,0,0,16">
+      <TextBlock Text="Project Revival 17" FontSize="26" FontWeight="SemiBold" />
+      <TextBlock x:Name="AccountText" Margin="0,6,0,0" Foreground="{StaticResource Muted}" />
+      <TextBlock x:Name="ServerText" Foreground="{StaticResource Muted}" />
+    </StackPanel>
+    <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled">
+      <StackPanel>
+        <Border Style="{StaticResource Card}">
+          <StackPanel>
+            <TextBlock x:Name="StatusTitle" Text="Checking setup" FontSize="22" FontWeight="SemiBold" />
+            <TextBlock x:Name="StatusMessage" Margin="0,8,0,0" />
+            <TextBlock x:Name="SessionText" Margin="0,8,0,0" Foreground="{StaticResource Muted}" />
+            <TextBlock x:Name="OperationText" Margin="0,8,0,0" Foreground="{StaticResource Muted}" />
+            <Button x:Name="FixButton" HorizontalAlignment="Left" Margin="0,12,0,0"
+                    Visibility="Collapsed" Click="OnFix" />
+          </StackPanel>
+        </Border>
+        <Border Style="{StaticResource Card}" x:Name="SetupCard">
+          <StackPanel>
+            <TextBlock Style="{StaticResource Heading}" Text="YOUR INVITE" />
+            <TextBlock Text="Paste the invite your host sent you to set up your account and server." Margin="0,0,0,10" />
+            <TextBox x:Name="InviteBox" Height="72" AcceptsReturn="True" TextWrapping="Wrap"
+                     VerticalScrollBarVisibility="Auto" FontFamily="Consolas" FontSize="12" Padding="8"
+                     AutomationProperties.Name="Invite code" />
+            <WrapPanel Margin="0,10,0,0">
+              <Button x:Name="UseInviteButton" Content="Use this invite" Click="OnUseInvite" />
+              <Button x:Name="CancelInviteButton" Content="Cancel" Click="OnCancelInvite" Visibility="Collapsed" />
+            </WrapPanel>
+            <TextBlock x:Name="InviteError" Margin="0,8,0,0" Foreground="{StaticResource Bad}" />
+          </StackPanel>
+        </Border>
+        <Expander x:Name="GameDetails" Header="FIFA installation" Margin="0,0,0,12">
+          <Border Style="{StaticResource Card}" Margin="0,8,0,0">
+            <StackPanel>
+              <TextBlock x:Name="GamePathText" />
+              <TextBlock x:Name="GameBuildText" Foreground="{StaticResource Muted}" FontSize="12" Margin="0,4,0,0" />
+              <Button x:Name="BrowseButton" Content="Browse for FIFA17.exe..." HorizontalAlignment="Left"
+                      Margin="0,10,0,0" Click="OnBrowse" />
+            </StackPanel>
+          </Border>
+        </Expander>
+        <Expander Header="Connection details" Margin="0,0,0,12">
+          <Border Style="{StaticResource Card}" Margin="0,8,0,0">
+            <StackPanel>
+              <TextBlock x:Name="VersionText" Foreground="{StaticResource Muted}" Margin="0,0,0,12" />
+              <ItemsControl x:Name="ChecksList">
+                <ItemsControl.ItemTemplate>
+                  <DataTemplate>
+                    <Grid Margin="0,0,0,10">
+                      <Grid.ColumnDefinitions><ColumnDefinition Width="22" /><ColumnDefinition Width="*" /></Grid.ColumnDefinitions>
+                      <TextBlock Text="{Binding Glyph}" Foreground="{Binding Brush}" FontWeight="Bold" />
+                      <StackPanel Grid.Column="1">
+                        <TextBlock Text="{Binding Message}" />
+                        <TextBlock Text="{Binding Detail}" FontSize="11" Foreground="{StaticResource Muted}"
+                                   Visibility="{Binding DetailVisibility}" />
+                      </StackPanel>
+                    </Grid>
+                  </DataTemplate>
+                </ItemsControl.ItemTemplate>
+              </ItemsControl>
+              <WrapPanel>
+                <Button x:Name="RefreshButton" Content="Re-check" Click="OnRefresh" />
+                <Button Content="Copy diagnostic report" Click="OnCopyDiagnostics" />
+              </WrapPanel>
+              <TextBlock x:Name="CopyStatus" Margin="0,8,0,0" Foreground="{StaticResource Muted}" />
+            </StackPanel>
+          </Border>
+        </Expander>
+        <Expander Header="Account and maintenance" Margin="0,0,0,12">
+          <Border Style="{StaticResource Card}" Margin="0,8,0,0">
+            <StackPanel>
+              <WrapPanel>
+                <Button x:Name="ChangeInviteButton" Content="Replace invite..." Click="OnChangeInvite" />
+                <Button x:Name="InstallButton" Content="Repair files" Click="OnInstall" />
+                <Button x:Name="UninstallButton" Content="Uninstall Revival" Click="OnUninstall" />
+                <Button Content="View release downloads" Click="OnReleases" />
+              </WrapPanel>
+              <TextBlock Text="Friends Server is active. Local mode is not available yet; its club will be separate."
+                         Margin="0,10,0,0" Foreground="{StaticResource Muted}" />
+            </StackPanel>
+          </Border>
+        </Expander>
+      </StackPanel>
+    </ScrollViewer>
+    <StackPanel Grid.Row="2" Margin="0,12,0,0">
+      <Border BorderBrush="{StaticResource Line}" BorderThickness="0,1,0,0" Padding="0,10,0,0" Margin="0,0,0,10">
+        <StackPanel>
+          <TextBlock FontSize="11" FontWeight="SemiBold" Foreground="{StaticResource Muted}"
+                     Text="Unofficial, non-commercial fan project made only for game preservation, because the official servers were shut down. Not affiliated with, endorsed by or connected to any game publisher. All trademarks belong to their respective owners. Free of charge: no profit is made from it, and it must never be sold." />
+          <TextBlock FontSize="11" Foreground="{StaticResource Muted}" Margin="0,4,0,0">
+            <Run Text="Created by aleksanderG · " /><Hyperlink NavigateUri="https://github.com/aleksandeerG/Project-Revival-17" RequestNavigate="OnProjectLink">github.com/aleksandeerG/Project-Revival-17</Hyperlink>
+          </TextBlock>
+        </StackPanel>
+      </Border>
+      <TextBlock x:Name="BusyText" Foreground="{StaticResource Muted}" Margin="0,0,0,8" />
+      <WrapPanel HorizontalAlignment="Right">
+        <Button x:Name="CancelSessionButton" Content="Cancel waiting" Click="OnCancelSession" Visibility="Collapsed" />
+        <Button x:Name="TrayButton" Content="Minimize to tray" Click="OnMinimizeToTray" Visibility="Collapsed" />
+        <Button x:Name="LaunchButton" Content="Find FIFA 17" Click="OnPrimary" FontWeight="SemiBold" Margin="0" />
+      </WrapPanel>
+    </StackPanel>
+  </Grid>
+</Window>
